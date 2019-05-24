@@ -1,0 +1,19 @@
+{
+  "name": "enklima-api",
+  "version": "0.0.1",
+  "description": "The API for my computer engineering class project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhonathanF/enklima.git"
+  },
+  "author": "Jhonathan Ferreira & Lyncon Kusminski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jhonathanF/enklima/issues"
+  },
+  "homepage": "https://github.com/jhonathanF/enklima#readme"
+}
