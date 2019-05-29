@@ -12,4 +12,14 @@ module.export = class UserRepo {
         });
         this.model = mongoose.model(UserModel, schema, 'user');
     }
+
+    teste() {
+        this.model.save({
+            id: 1,
+            name: 'ef',
+            rank: 'few',
+            age: 13
+        })
+            .then(d => console.log(d.ops[0]), console.log);
+    }
 }

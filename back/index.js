@@ -1,6 +1,7 @@
 var express = require('express');
 global.app = express();
 
+moongoose.connect('mongodb://localhost:27017/test');
 global.app.use(require('./controllers'))
 
 global.app.listen(3000, function () {
