@@ -1,7 +1,10 @@
 var express = require('express')
     , router = express.Router()
+import UserRepo from '../repositories/userRepo.js';
 
-router.get('/login', function (req, res) {
+router.post('/', function (req, res) {
+
+    
     res.send('Logged')
 })
 

@@ -1,5 +1,5 @@
 
-module.export = class User extends global.mongoose.Model {
+module.export = class Incident extends global.mongoose.Model {
     constructor() {
         super();
     }

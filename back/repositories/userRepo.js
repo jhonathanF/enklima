@@ -1,25 +1,38 @@
-import { UserModel } from '../models/user';
-import { mongoose } from 'mongoose';
+import { User } from '../models/user';
 
-module.export = class UserRepo {
+var autoIncrement = require('mongoose-auto-increment');
 
+class UserRepo {
     constructor() {
-        const schema = mongoose.Schema({
-            id: Number,
-            name: String,
+        this.schema = global.mongoose.Schema({
+            name: {
+                type: String,
+                required: [true, 'Name is Required'],
+            },
             rank: String,
             age: Number,
+            registrationId: Number,
+            password: String,
+            isAdmin: Boolean
         });
-        this.model = mongoose.model(UserModel, schema, 'user');
+        this.schema.plugin(autoIncrement.plugin, 'user');
+        this.model = new global.mongoose.model('user', this.schema);
     }
 
-    teste() {
-        this.model.save({
-            id: 1,
-            name: 'ef',
-            rank: 'few',
-            age: 13
-        })
-            .then(d => console.log(d.ops[0]), console.log);
+    getUserModel(properties) {
+        return this.model(properties);
     }
+
+    getUserModelErrors(user) {
+        return user.validateSync();
+    }
+
+    save(user) {
+        return user.save();
+    }
+
+
+
 }
+
+export default new UserRepo();
