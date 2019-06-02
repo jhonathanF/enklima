@@ -1,6 +1,9 @@
 const express = require('express');
+require('dotenv').config();
 const bodyParser = require('body-parser');
 const autoIncrement = require('mongoose-auto-increment');
+
+
 global.app = express();
 global.mongoose = require('mongoose');
 
@@ -18,6 +21,8 @@ autoIncrement.initialize(global.mongoose.connections[0]);
 
 global.app.use(require('./controllers'))
 
-global.app.listen(3000, function () {
+global.app.listen(3000, async function () {
+  const migration = require('./migration/migration')
+  // await migration();
   console.log('APP is listening on port 3000!');
 });

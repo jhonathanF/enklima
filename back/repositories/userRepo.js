@@ -12,7 +12,6 @@ class UserRepo {
             },
             rank: String,
             age: Number,
-            registrationId: Number,
             password: String,
             isAdmin: Boolean
         });
@@ -37,7 +36,7 @@ class UserRepo {
     }
 
     validatePassword(rawPass, encryptedPass) {
-       return sha1(rawPass) === encryptedPass;
+        return sha1(rawPass) == encryptedPass;
     }
 
 }

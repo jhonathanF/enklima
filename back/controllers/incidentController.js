@@ -1,8 +1,9 @@
 var express = require('express')
     , router = express.Router()
 import IncidentRepo from '../repositories/incidentRepo.js';
+const verifyJWT = require('../utils/jwtUtil');
 
-router.get('/', async function (req, res) {
+router.get('/', verifyJWT.normalUser, async function (req, res) {
     const incidents = await IncidentRepo.findAll();
 
     res.send(incidents)
