@@ -14,13 +14,13 @@ router.post('/', async function (req, res) {
     res.send(incidents)
 })
 
-router.update('/validate', async function (req, res) {
+router.put('/validate', async function (req, res) {
     const incidents = await IncidentRepo.findAll();
 
     res.send(incidents)
 })
 
-router.update('/invalidate', async function (req, res) {
+router.put('/invalidate', async function (req, res) {
     const incidents = await IncidentRepo.findAll();
 
     res.send(incidents)

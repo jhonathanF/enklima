@@ -10,8 +10,8 @@ app.use(bodyParser.urlencoded({
 }));
 
 global.mongoose.connect('mongodb://localhost/aula', { useNewUrlParser: true }, function (err) {
-    if (err) throw err;
-    console.log('Banco conectado com sucesso!');
+  if (err) throw err;
+  console.log('Banco conectado com sucesso!');
 });
 
 autoIncrement.initialize(global.mongoose.connections[0]);
@@ -19,5 +19,5 @@ autoIncrement.initialize(global.mongoose.connections[0]);
 global.app.use(require('./controllers'))
 
 global.app.listen(3000, function () {
-    console.log('APP is listening on port 3000!');
+  console.log('APP is listening on port 3000!');
 });

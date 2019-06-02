@@ -1,10 +1,10 @@
-
+global.mongoose = require('mongoose');
 module.export = class User extends global.mongoose.Model {
     constructor() {
         super();
     }
 
-    verifyLogin(email, password) {
+    verifyLogin(username, password) {
 
     }
 }

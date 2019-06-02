@@ -1,5 +1,6 @@
 import { User } from '../models/user';
-
+global.mongoose = require('mongoose');
+var sha1 = require('sha1');
 var autoIncrement = require('mongoose-auto-increment');
 
 class UserRepo {
@@ -31,7 +32,13 @@ class UserRepo {
         return user.save();
     }
 
+    findByName(name) {
+        return this.model.find({ 'name': name });
+    }
 
+    validatePassword(rawPass, encryptedPass) {
+       return sha1(rawPass) === encryptedPass;
+    }
 
 }
 
