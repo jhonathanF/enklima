@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'front';
+  title = 'trabalhoBim';
+
+  constructor(
+    private userService: UserService
+  ) { }
+
+  ngOnInit() {
+
+  }
+
+  isLogged() {
+    return this.userService.user ? true : false;
+  }
 }

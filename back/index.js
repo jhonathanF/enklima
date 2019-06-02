@@ -1,6 +1,7 @@
 const express = require('express');
 require('dotenv').config();
 const bodyParser = require('body-parser');
+const cors = require('cors')
 const autoIncrement = require('mongoose-auto-increment');
 
 
@@ -20,6 +21,9 @@ global.mongoose.connect('mongodb://localhost/aula', { useNewUrlParser: true }, f
 autoIncrement.initialize(global.mongoose.connections[0]);
 
 global.app.use(require('./controllers'))
+
+//here is the magic
+app.use(cors());
 
 global.app.listen(3000, async function () {
   const migration = require('./migration/migration')

@@ -1,5 +1,6 @@
 var express = require('express')
-    , router = express.Router();
+    ,
+    router = express.Router();
 import UserRepo from '../repositories/userRepo.js';
 import UserModel from '../models/user'
 const JWT = require('jsonwebtoken');
@@ -12,16 +13,25 @@ router.post('/', function (req, res) {
 
 app.post('/login', async function (req, res) {
     const user = await UserRepo.findByName(req.body.username);
-    if (!user) {
+    if (!user || user.length <= 0) {
+        console.log('Login invalido');
         return res.status(500).send('Login inválido!');
     }
     if (!UserRepo.validatePassword(req.body.password, user[0].password)) {
+        console.log('Login invalido');
         return res.status(500).send('Login inválido!');
     }
     var token = JWT.sign({ id: user[0].id }, process.env.JWT_SECRET, {
         expiresIn: 300 // expires in 5min
     });
-    return res.status(200).send({ auth: true, token: token });
+    return res.status(200).send({
+        auth: true,
+        token: token,
+        name: user[0].name,
+        age: user[0].age,
+        rank: user[0].rank,
+        isAdmin: user[0].isAdmin
+    });
 }
 );
 
