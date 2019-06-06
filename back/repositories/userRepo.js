@@ -35,6 +35,10 @@ class UserRepo {
         return this.model.find({ 'name': name });
     }
 
+    findById(id) {
+        return this.model.find({ '_id': id });
+    }
+
     validatePassword(rawPass, encryptedPass) {
         return sha1(rawPass) == encryptedPass;
     }

@@ -1,5 +1,5 @@
 <div class="mr-3 ml-3 pt-5">
-    <button  *ngIf="isAdmin" mat-raised-button class="mr-4">Cadastrar</button>
-    <button mat-raised-button class="mr-4" routerLink="/incident-register">Registrar ocorrencias</button>
+    <button  *ngIf="isAdmin()" mat-raised-button class="mr-4" routerLink="/cop-register">Cadastrar</button>
+    <button mat-raised-button  *ngIf="isAdmin()" class="mr-4" routerLink="/incident-register">Registrar ocorrencias</button>
     <button mat-raised-button routerLink="/incidents">Consultar ocorrencias</button>
 </div>

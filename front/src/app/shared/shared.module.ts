@@ -5,9 +5,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material';
+import { MatInputModule, MatCheckboxModule } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { Interceptor } from '../core/interceptor/interceptor.module';
 @NgModule({
   declarations: [],
@@ -21,6 +21,7 @@ import { Interceptor } from '../core/interceptor/interceptor.module';
     MatMenuModule,
     MatIconModule,
     MatTableModule,
+    MatCheckboxModule,
     Interceptor
   ],
   exports: [
@@ -33,6 +34,7 @@ import { Interceptor } from '../core/interceptor/interceptor.module';
     MatMenuModule,
     MatIconModule,
     MatTableModule,
+    MatCheckboxModule,
     Interceptor
   ]
 })

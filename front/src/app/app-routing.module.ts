@@ -4,6 +4,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { IncidentsComponent } from './pages/incidents/incidents.component';
 import { IncidentRegisterComponent } from './pages/incident-register/incident-register.component';
+import { CopRegisterComponent } from './pages/cop-register/cop-register.component';
 
 export const appRoutes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -15,6 +16,9 @@ export const appRoutes: Routes = [
   },
   {
     path: 'incident-register', component: IncidentRegisterComponent
+  },
+  {
+    path: 'cop-register', component: CopRegisterComponent
   },
   {
     path: 'login', component: LoginComponent

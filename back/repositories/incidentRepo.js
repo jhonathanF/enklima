@@ -8,7 +8,16 @@ class IncidentRepo {
                 type: String,
                 required: true,
             },
-            valid: Boolean
+            copName: String,
+            date: Date,
+            valid: {
+                type: Boolean,
+                default: false
+            },
+            hasVictims: {
+                type: Boolean,
+                default: false
+            }
         });
         this.schema.plugin(autoIncrement.plugin, 'incident');
         this.model = new global.mongoose.model('incident', this.schema);
@@ -30,8 +39,17 @@ class IncidentRepo {
         return this.model.find();
     }
 
+    findById(id) {
+        return this.model.findById(id);
+    }
 
+    findAllValid() {
+        return this.model.find({ 'valid': true });
+    }
 
+    findAllInvalid() {
+        return this.model.find({ 'valid': false });
+    }
 }
 
 export default new IncidentRepo();

@@ -15,7 +15,7 @@ export class UserService {
   constructor(
     private router: Router,
     private http: HttpClient
-    ) {
+  ) {
     this.user = JSON.parse(localStorage.getItem('currentUser')) as User;
   }
 
@@ -23,15 +23,8 @@ export class UserService {
     return this.http.post(environment.API_URL + '/login', { username: username, password: password });
   }
 
-  createNewUser(name, email, password, type) {
-    let allUsers: User[] = JSON.parse(localStorage.getItem('users')) as User[];
-    if (allUsers) {
-      allUsers.push(new User(name, email, password, type));
-    } else {
-      allUsers = [];
-      allUsers.push(new User(name, email, password, type));
-    }
-    localStorage.setItem('users', JSON.stringify(allUsers));
+  register(data) {
+    return this.http.post(environment.API_URL + '/user', data);
   }
 
   logout() {

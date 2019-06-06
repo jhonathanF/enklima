@@ -12,6 +12,7 @@ import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IncidentRegisterComponent } from './pages/incident-register/incident-register.component';
 import { IncidentsComponent } from './pages/incidents/incidents.component';
+import { CopRegisterComponent } from './pages/cop-register/cop-register.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { IncidentsComponent } from './pages/incidents/incidents.component';
     LoginComponent,
     HeaderComponent,
     IncidentRegisterComponent,
-    IncidentsComponent
+    IncidentsComponent,
+    CopRegisterComponent
   ],
   imports: [
     BrowserModule,
