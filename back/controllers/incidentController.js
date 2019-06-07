@@ -38,8 +38,7 @@ router.put('/updateValidation', verifyJWT.adminUser, async function (req, res) {
 router.delete('/', verifyJWT.adminUser, async function (req, res) {
     const incidentFound = await IncidentRepo.findById(req.query.id);
     await incidentFound.deleteOne();
-    res.send(incident)
-    res.send(incidents)
+    res.send()
 })
 
 module.exports = router;
